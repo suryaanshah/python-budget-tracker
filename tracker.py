@@ -1,4 +1,8 @@
-import datetime
+from datetime import datetime as dt 
+import pandas as pd 
+import csv
+
+
 
 
 
@@ -28,15 +32,6 @@ def record():
                 pass
 
     elif track.upper() == "I":
-        # while True:
-        #     try:
-        #         income=int(input("please enter the amount of income: "))
-        #         date=input("please enter the date (DD-MM-YY): ")
-        #         date_object = datetime.datetime.strptime(date, "%d-%m-%y").date()
-        #     except ValueError:
-        #         print("Not an integer")
-        #         pass
-
         trackincome()
         trackdate()
                 
@@ -51,13 +46,16 @@ def trackincome():
     try:
         income=int(input("enter the income: "))
     except ValueError:
+        print("Not an integer")
         trackincome()
 
 
 def trackdate():
     try:
-        date=input("enter the date: ")
+        date=input("enter the date (DD-MM-YY): ")
+        date_object = datetime.datetime.strptime(date, "%d-%m-%Y").date()
     except ValueError:
+        print("Invalid Date Format")
         trackdate()
     
 
