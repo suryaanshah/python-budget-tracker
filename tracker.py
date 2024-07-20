@@ -1,5 +1,5 @@
-from datetime import datetime as dt 
-import pandas as pd 
+from datetime import datetime
+import pandas as pd
 import csv
 
 
@@ -21,25 +21,31 @@ def main():
 
 
 def record():
+
     track=input("Is it an expense (E) or an income (I)? ")
+
     if track.upper() == "E":
-        while True:
-            try:
-                expense=int(input("please enter the amount of expense: "))
-                break
-            except ValueError:
-                print("Not an integer")
-                pass
+        trackexpense()
+        trackdate()
 
     elif track.upper() == "I":
         trackincome()
         trackdate()
-                
-                
-                
-            
+
     else:
         record()
+
+
+#def balance():
+
+
+
+def trackexpense():
+    try:
+        expense=int(input("enter the expense: "))
+    except ValueError:
+        print("Not an integer")
+        trackexpense()
 
 
 def trackincome():
@@ -54,16 +60,12 @@ def trackdate():
     try:
         date=input("enter the date (DD-MM-YY): ")
         date_object = datetime.datetime.strptime(date, "%d-%m-%Y").date()
-    except ValueError:
+    except:
         print("Invalid Date Format")
         trackdate()
-    
 
-
-
-
-# def balance():
 
 
 
 main()
+
