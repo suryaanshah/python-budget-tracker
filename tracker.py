@@ -2,7 +2,7 @@ from datetime import datetime
 import pandas as pd
 
 
-df = pd.DataFrame(columns=["date", "amount", "type"])
+df = pd.DataFrame(columns=["date", "expense", "income", "balance"])
 
 def main():
     todo = input("What do want to do?\n 1. record a statement (R)\n 2. show the balance-sheet (B)\n 3. tutorial (T)\nYour Answer: ")
@@ -19,14 +19,14 @@ def record():
     track = input("Is it an expense (E) or an income (I)? ")
 
     if track.upper() == "E":
-        amount = trackexpense()
+        expense = trackexpense()
         date = trackdate()
-        df.loc[len(df)] = [date, amount, "expense"]
+        df.loc[len(df)] = [date, expense, 0, -expense]
         df.to_csv("track.csv", index=False)
     elif track.upper() == "I":
-        amount = trackincome()
+        income = trackincome()
         date = trackdate()
-        df.loc[len(df)] = [date, amount, "income"]
+        df.loc[len(df)] = [date, 0, income, income]
         df.to_csv("track.csv", index=False)
     else:
         record()
@@ -50,11 +50,15 @@ def trackincome():
 def trackdate():
     while True:
         try:
-            date_str = input("Enter the date (DD-MM-YYYY): ")
+            date_str = input("Enter the date (DD-MM-YY): ")
             date_object = datetime.strptime(date_str, "%d-%m-%y").date()
             return date_object
         except ValueError:
             print("Invalid Date Format, please try again.")
+
+
+#def balance():
+
 
 main()
 
