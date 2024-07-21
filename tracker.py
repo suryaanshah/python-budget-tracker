@@ -1,5 +1,6 @@
 from datetime import datetime
 import pandas as pd
+import matplotlib.pyplot as plt
 import webbrowser
 
 
@@ -52,6 +53,7 @@ def trackincome():
         except ValueError:
             print("Not an integer, please try again.")
 
+
 def trackdate():
     while True:
         try:
@@ -63,7 +65,14 @@ def trackdate():
 
 
 def balance():
-    print(f"\nYour net balance is {df["balance"].sum()}\n")
+    balance = df["balance"].cumsum()
+    netbalance = df["balance"].sum()
+    print(f"\nYour net balance is {netbalance}\n")
+    plt.plot(df["date"],balance)
+    plt.title("Balance every day")
+    plt.xlabel("Date")
+    plt.ylabel("Balance")
+    plt.savefig("balance-graph.png")
     main()
 
 
@@ -71,6 +80,7 @@ def tutorial():
     print("here is a sample use case video....")
     webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
     main()
+
 
 main()
 
