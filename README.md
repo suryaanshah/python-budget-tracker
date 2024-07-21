@@ -13,3 +13,10 @@ this python program helps you track your budget
 + datetime
 + webbrowser
 
+#### installation
++ must install [python](https://python.org/downloads)
+
+`pip install pandas matplotlib datetime webbrowser`
+
+##### running
+`python tracker.py`
