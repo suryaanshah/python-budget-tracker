@@ -1,8 +1,4 @@
 pandas
-csv
-numpy
-random
-matplotlib
-pyplot
+matplotlib.pyplot
 webbrowser
 datetime
