@@ -1,9 +1,15 @@
 # python-budget-tracker
 this python program helps you track your budget
 
-What it does:
-1. help you track: expenses (E), income (I)
-2. generates your balance sheet
-3. ask your assets: what do you own
-4. ask your liabilities: obligation to someone else
-5. tell your equity/net-worth: A=L+E
+## What it does:
+1. Asks for expenses/incomes and their date
+2. tells ur net balance after all recordings
+3. gives the best tutorial in the world!
+4. generates graph of dates vs balance
+
+### Requirements
++ pandas
++ matplotlib.pyplot
++ datetime
++ webbrowser
+
