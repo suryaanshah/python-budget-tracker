@@ -1,5 +1,6 @@
 from datetime import datetime
 import pandas as pd
+import webbrowser
 
 
 df = pd.DataFrame(columns=["date", "expense", "income", "balance"])
@@ -10,8 +11,8 @@ def main():
         record()
     # elif todo.upper() == 'B':
     #     balance()
-    # elif todo.upper() == 'T':
-    #     tutorial()
+    elif todo.upper() == 'T':
+         tutorial()
     else:
         main()
 
@@ -58,6 +59,11 @@ def trackdate():
 
 
 #def balance():
+
+def tutorial():
+    print("here is a sample use case video....")
+    webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+
 
 
 main()
