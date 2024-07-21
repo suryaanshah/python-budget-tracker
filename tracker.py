@@ -6,13 +6,15 @@ import webbrowser
 df = pd.DataFrame(columns=["date", "expense", "income", "balance"])
 
 def main():
-    todo = input("What do want to do?\n 1. record a statement (R)\n 2. show the balance-sheet (B)\n 3. tutorial (T)\nYour Answer: ")
+    todo = input("What do want to do?\n 1. record a statement (R)\n 2. show the balance-sheet (B)\n 3. tutorial (T)\n 4. Exit (E)\nYour Answer: ")
     if todo.upper() == 'R':
         record()
-    # elif todo.upper() == 'B':
-    #     balance()
+    elif todo.upper() == 'B':
+        balance()
     elif todo.upper() == 'T':
          tutorial()
+    elif todo.upper() == 'E':
+        return 0
     else:
         main()
 
@@ -24,11 +26,13 @@ def record():
         date = trackdate()
         df.loc[len(df)] = [date, expense, 0, -expense]
         df.to_csv("track.csv", index=False)
+        main()
     elif track.upper() == "I":
         income = trackincome()
         date = trackdate()
         df.loc[len(df)] = [date, 0, income, income]
         df.to_csv("track.csv", index=False)
+        main()
     else:
         record()
 
@@ -58,13 +62,15 @@ def trackdate():
             print("Invalid Date Format, please try again.")
 
 
-#def balance():
+def balance():
+    print(f"\nYour net balance is {df["balance"].sum()}\n")
+    main()
+
 
 def tutorial():
     print("here is a sample use case video....")
     webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
-
-
+    main()
 
 main()
 
