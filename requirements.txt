@@ -1,0 +1,8 @@
+pandas
+csv
+numpy
+random
+matplotlib
+pyplot
+webbrowser
+datetime
