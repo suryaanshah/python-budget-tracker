@@ -1,5 +1,7 @@
 # python-budget-tracker
 this python program helps you track your budget
+![image](https://github.com/user-attachments/assets/3bdb4875-6156-43a6-bbbf-d500fc038abf)
+
 
 ## What it does:
 1. Asks for expenses/incomes and their date
